@@ -1,0 +1,149 @@
+{% extends 'base.html'%}
+{% load static %}
+{% block content %}
+
+
+        <main class="main">
+            <div class="mb-5"></div><!-- End .mb-5 -->
+
+            <div class="container for-you">
+                <div class="heading heading-flex mb-3">
+                    <div class="heading-left">
+                        <h2 class="title">Search Product</h2><!-- End .title -->
+                    </div><!-- End .heading-left -->
+
+                   <div class="heading-right">
+                        <a href="#" class="title-link">View All Recommendadion <i class="icon-long-arrow-right"></i></a>
+                   </div><!-- End .heading-right -->
+                </div><!-- End .heading -->
+
+                <div class="products">
+                    <div class="row justify-content-center">
+                        {% if search_product %}
+                            {% for product in search_product %}
+                            <div class="col-6 col-md-4 col-lg-3">
+                                <div class="product product-2">
+                                    <figure class="product-media">
+                                        <span class="product-label label-circle label-sale">Sale</span>
+                                        <a href="{% url 'product_details' product.slug  %}">
+                                            <img src="{{product.mainimage.url}}" alt="Product image" class="product-image">
+                                        </a>
+
+                                        <div class="product-action-vertical">
+                                            <a href="#" class="btn-product-icon btn-wishlist" title="Add to wishlist"></a>
+                                        </div><!-- End .product-action -->
+
+                                        <div class="product-action">
+                                            <a href="#" class="btn-product btn-cart" title="Add to cart"><span>add to cart</span></a>
+                                            <a href="popup/quickView.html" class="btn-product btn-quickview" title="Quick view"><span>quick view</span></a>
+                                        </div><!-- End .product-action -->
+                                    </figure><!-- End .product-media -->
+
+                                    <div class="product-body">
+                                        <div class="product-cat">
+                                            <a href="#">Headphones</a>
+                                        </div><!-- End .product-cat -->
+                                        <h3 class="product-title"><a href="product.html">{{product.name}}</a></h3><!-- End .product-title -->
+                                        <div class="product-price">
+                                            {% if product.old_price > 0 %}
+                                            <span class="new-price">${{product.price}}</span>
+                                            <span class="old-price">Was ${{product.old_price}}</span>
+                                            {% else %}
+                                            <span class="new-price">${{product.price}}</span>
+                                            {% endif %}
+                                        </div><!-- End .product-price -->
+                                        <div class="ratings-container">
+                                            <div class="ratings">
+                                                <div class="ratings-val" style="width: 40%;"></div><!-- End .ratings-val -->
+                                            </div><!-- End .ratings -->
+                                            <span class="ratings-text">( 4 Reviews )</span>
+                                        </div><!-- End .rating-container -->
+
+                                        <div class="product-nav product-nav-dots">
+                                            <a href="#" class="active" style="background: #666666;"><span class="sr-only">Color name</span></a>
+                                            <a href="#" style="background: #ff887f;"><span class="sr-only">Color name</span></a>
+                                            <a href="#" style="background: #6699cc;"><span class="sr-only">Color name</span></a>
+                                            <a href="#" style="background: #f3dbc1;"><span class="sr-only">Color name</span></a>
+                                            <a href="#" style="background: #eaeaec;"><span class="sr-only">Color name</span></a>
+                                        </div><!-- End .product-nav -->
+                                    </div><!-- End .product-body -->
+                                </div><!-- End .product -->
+                            </div><!-- End .col-sm-6 col-md-4 col-lg-3 -->
+                            {% endfor %}
+                        {% else %}
+                            <h1>Product Not Found</h1>
+                        {% endif %}
+                        
+
+                    </div><!-- End .row -->
+                </div><!-- End .products -->
+            </div><!-- End .container -->
+
+            <div class="mb-4"></div><!-- End .mb-4 -->
+
+            <div class="container">
+                <hr class="mb-0">
+            </div><!-- End .container -->
+
+            <div class="icon-boxes-container bg-transparent">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-6 col-lg-3">
+                            <div class="icon-box icon-box-side">
+                                <span class="icon-box-icon text-dark">
+                                    <i class="icon-rocket"></i>
+                                </span>
+                                <div class="icon-box-content">
+                                    <h3 class="icon-box-title">Free Shipping</h3><!-- End .icon-box-title -->
+                                    <p>Orders $50 or more</p>
+                                </div><!-- End .icon-box-content -->
+                            </div><!-- End .icon-box -->
+                        </div><!-- End .col-sm-6 col-lg-3 -->
+
+                        <div class="col-sm-6 col-lg-3">
+                            <div class="icon-box icon-box-side">
+                                <span class="icon-box-icon text-dark">
+                                    <i class="icon-rotate-left"></i>
+                                </span>
+
+                                <div class="icon-box-content">
+                                    <h3 class="icon-box-title">Free Returns</h3><!-- End .icon-box-title -->
+                                    <p>Within 30 days</p>
+                                </div><!-- End .icon-box-content -->
+                            </div><!-- End .icon-box -->
+                        </div><!-- End .col-sm-6 col-lg-3 -->
+
+                        <div class="col-sm-6 col-lg-3">
+                            <div class="icon-box icon-box-side">
+                                <span class="icon-box-icon text-dark">
+                                    <i class="icon-info-circle"></i>
+                                </span>
+
+                                <div class="icon-box-content">
+                                    <h3 class="icon-box-title">Get 20% Off 1 Item</h3><!-- End .icon-box-title -->
+                                    <p>when you sign up</p>
+                                </div><!-- End .icon-box-content -->
+                            </div><!-- End .icon-box -->
+                        </div><!-- End .col-sm-6 col-lg-3 -->
+
+                        <div class="col-sm-6 col-lg-3">
+                            <div class="icon-box icon-box-side">
+                                <span class="icon-box-icon text-dark">
+                                    <i class="icon-life-ring"></i>
+                                </span>
+
+                                <div class="icon-box-content">
+                                    <h3 class="icon-box-title">We Support</h3><!-- End .icon-box-title -->
+                                    <p>24/7 amazing services</p>
+                                </div><!-- End .icon-box-content -->
+                            </div><!-- End .icon-box -->
+                        </div><!-- End .col-sm-6 col-lg-3 -->
+                    </div><!-- End .row -->
+                </div><!-- End .container -->
+            </div><!-- End .icon-boxes-container -->
+        </main><!-- End .main -->
+
+        
+
+    {% endblock %}
+    

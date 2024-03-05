@@ -1,0 +1,35 @@
+{% extends 'base.html'%}
+{% load static %}
+{% block content %}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="user-profile">
+                <button class="btn btn-danger"><a href="{% url 'user_profile_update' %}">Edit profile</a></button>
+                <p>{{profile.full_name}}</p>
+                <p>{{profile.phone_number}}</p>
+                <p>{{profile.address}}</p>
+                <p>{{profile.gender}}</p>
+            </div>
+        </div>
+        <!-- <div class="col-md-6">
+            <div class="size">
+                <form action="{% url 'user_profile_show' %}" method="post">
+                    {% csrf_token %}
+                    <select name="size" id="size" class="form-control">
+                        <option value="#" selected="selected">Select a size</option>
+                        {% for i in sizes%}
+                        <option value="{{i.name}}">{{i.name}}</option>
+                        {% endfor %}
+                    </select>
+                    <input type="submit">
+                </form>
+            </div>
+        </div> -->
+    </div>
+</div>
+
+
+
+{% endblock content %}

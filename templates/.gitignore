@@ -1,0 +1,6 @@
+env/
+.env
+media/
+media
+static/
+static
